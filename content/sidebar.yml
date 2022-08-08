@@ -1,3 +1,5 @@
 sidebarItems:
   - label: Home
     href: /
+  - label: Contant
+    href: /contant
