@@ -41,7 +41,7 @@ collections:
     name: "components"
     files:
       - label: "Sidebar"
-        name: "about"
+        name: "sidebar"
         file: "content/components/sidebar"
         fields:
           - {
