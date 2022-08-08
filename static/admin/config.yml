@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}”'
-    update: 'Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
-    uploadMedia: '[skip ci] Upload “{{path}}”'
-    deleteMedia: '[skip ci] Delete “{{path}}”'
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
 
 media_folder: static/images
 public_folder: ../../static/images
@@ -18,12 +18,36 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template", name: "template", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "publishedDate", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featured", widget: "boolean", default: false}
-      - {label: "Featured Image", name: "img", widget: image}
-      - {label: "Image Caption", name: "imgAlt", widget: string}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {
+          label: "Template",
+          name: "template",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "publishedDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Featured Post",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Featured Image", name: "img", widget: image }
+      - { label: "Image Caption", name: "imgAlt", widget: string }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - label: "Components"
+    name: "components"
+    files:
+      - label: "Sidebar"
+        name: "about"
+        file: "content/sidebar.yml"
+        fields:
+          - label: Sidebar items
+            name: sidebarItems
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: href, name: href, widget: string }
+              # - {label: Photo, name: photo, widget: image}
