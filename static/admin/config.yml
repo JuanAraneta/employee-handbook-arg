@@ -40,16 +40,16 @@ collections:
   - label: "Components"
     name: "components"
     files:
-      - {
-          label: "Template",
-          name: "template",
-          widget: "hidden",
-          default: "sidebar",
-        }
       - label: "Sidebar"
         name: "about"
-        file: "content/sidebar.yml"
+        file: "content/components/sidebar"
         fields:
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "sidebar",
+            }
           - label: Sidebar items
             name: sidebarItems
             widget: list
