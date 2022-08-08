@@ -1,6 +1,0 @@
-template: sidebar
-sidebarItems:
-  - label: Home
-    href: /
-  - label: Juampys
-    href: /contant
