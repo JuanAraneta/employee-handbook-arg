@@ -16,9 +16,11 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ sidebarItems }) => {
     <StaticQuery
       query={graphql`
         query {
-          components {
-            siteMetadata {
-              title
+          allMarkdownRemark {
+            nodes {
+              frontmatter {
+                template
+              }
             }
           }
         }
