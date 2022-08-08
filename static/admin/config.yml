@@ -42,7 +42,7 @@ collections:
     files:
       - label: "Sidebar"
         name: "sidebar"
-        file: "content/components/sidebar"
+        file: "content/components/sidebar.yml"
         fields:
           - {
               label: "Template",
