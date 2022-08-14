@@ -6,9 +6,9 @@ const story = storiesOf("Components|Layout", module);
 
 const data: SidebarItem[] = [
   {
-    label: "Titulo",
+    title: "Titulo",
     href: "/",
   },
 ];
 
-story.add("Header", () => <Sidebar sidebarItems={data} />);
+story.add("Sidebar", () => <Sidebar sidebarItems={data} />);

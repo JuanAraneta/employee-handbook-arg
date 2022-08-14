@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import deptLogo from "../../../../static/images/dept-logo.svg";
 
 export interface SidebarItem {
-  label: string;
+  title: string;
   href: string;
 }
 
@@ -13,24 +13,20 @@ export interface SidebarProps {
 
 const Sidebar: FunctionComponent<SidebarProps> = ({ sidebarItems }) => {
   return (
-    <StaticQuery
-      query={graphql`
-        query {
-          allMarkdownRemark {
-            nodes {
-              frontmatter {
-                template
-              }
-            }
-          }
-        }
-      `}
-      render={(data) => (
-        <nav className="shadow-lg fixed h-screen w-60 l-0 t-0">
-          <img src={deptLogo} alt="Dept" />
-        </nav>
-      )}
-    />
+    <nav className="shadow-lg fixed h-screen w-60 l-0 t-0 px-12 pt-12">
+      <div className="flex mb-20">
+        <img className="w-2/3" src={deptLogo} alt="Dept" />
+        🇦🇷
+      </div>
+      <div>
+        <Link to="/">Home</Link>
+      </div>
+      {sidebarItems.map(({ title, href }) => (
+        <div key={href}>
+          <Link to={href}>{title}</Link>
+        </div>
+      ))}
+    </nav>
   );
 };
 

@@ -5,17 +5,6 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import Sidebar, { SidebarItem } from "./Sidebar";
 import { Footer } from "./footer";
 
-const menuItems: SidebarItem[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-];
-
 const footer = {
   copyrightOwner: "GEEK SG",
   linkedin: "https://www.linkedin.com/in/raymondyeh/",
@@ -23,7 +12,12 @@ const footer = {
   instagram: "https://www.instagram.com/geek.sg/",
 };
 
-export const Layout: FunctionComponent = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+  items: SidebarItem[];
+}
+
+export const Layout: React.FC<Props> = ({ children, items }) => {
   const { title } = useSiteMetadata();
   return (
     <>
@@ -55,11 +49,11 @@ export const Layout: FunctionComponent = ({ children }) => {
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <meta name="theme-color" content="#fff" />
       </Helmet>
-      <Sidebar sidebarItems={menuItems} />
-      <div className="min-h-screen">
+      <Sidebar sidebarItems={items} />
+      <div className="min-h-screen ml-60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+        <Footer {...footer} />
       </div>
-      <Footer {...footer} />
     </>
   );
 };

@@ -35,7 +35,7 @@ interface QueryData {
 }
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query ($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___publishedDate], order: DESC }
       limit: $limit
@@ -83,13 +83,13 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
         image={posts[0].img.src}
         description={`Page ${pageContext.currentPage}`}
       />
-      <Layout>
+      {/* <Layout>
         <BlogList
           posts={posts}
           page={pageContext.currentPage}
           hasNext={pageContext.hasNext}
         />
-      </Layout>
+      </Layout> */}
     </>
   );
 };
